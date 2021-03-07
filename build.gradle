@@ -1,0 +1,32 @@
+plugins {
+    id 'war'
+    id 'eclipse'
+}
+
+repositories {
+    jcenter()
+}
+
+compileJava {
+    sourceCompatibility = '1.8'
+    //targetCompatibility = '1.8'
+}
+
+dependencies {
+	providedCompile 'javax.ws.rs:javax.ws.rs-api:2.0.1'
+	providedCompile 'javax.ws.rs:jsr311-api:1.1.1'
+}
+
+// Docker build steps high level steps 
+/*
+apply plugin: 'docker'
+
+run this task after <assembleResources> to build the image 
+task image(type: Docker, dependsOn: assembleResources){
+//
+//
+
+}
+   
+
+*/
