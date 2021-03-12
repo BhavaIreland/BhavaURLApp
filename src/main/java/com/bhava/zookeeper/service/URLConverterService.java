@@ -22,7 +22,18 @@ public class URLConverterService {
 	            shortURL[i] = randChars.charAt(rand.nextInt(randChars.length()));
             
 	        String sUrl = new String(shortURL);
+		// TODO: here we need to validate the uniqueness of the key.
+		// couple of options like 
+		// 1. adding the userId to the key or 
+		// 2. hashing the key 
+		// 3. or some other unique factors in the real project
+		
 	        store.urlMap.put(sUrl,longUrl);
+		// keep that above line in try catch block and handle if any collision occures. If collision occures regenerate the key until its unique. Its a rare 
+		// situation to have a collision. 
+		// or else use the given longUrl as key and validate the unique key as described above
+		// if longUrl exists then simple get it and return
+		// SINCE ITS A DEMO APP, NOT HANDLED ALL REAL SCENARIOS.
 	        return sUrl;
 
 	    }
